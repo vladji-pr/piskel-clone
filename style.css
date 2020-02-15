@@ -1,0 +1,488 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #f7f7f7;
+  background-color: #374848;
+  font-family: "Chakra Petch", sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+header {
+  padding: 15px 0;
+  background: #17797e;
+}
+
+.content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 600;
+}
+
+button:focus {
+  outline: none;
+}
+
+canvas,
+.preview_screen-inner {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAABlBMVEVMTExVVVUnhsEkAAAAHUlEQVR4AWOAAUYoQOePEAUj3v9oYDQ9gMBoegAAJFwCAbLaTIMAAAAASUVORK5CYII=")
+    repeat;
+}
+
+header h1 {
+  font-family: "Chakra Petch", sans-serif;
+}
+
+.auth-block button {
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+main {
+  margin-top: 50px;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Auth user info */
+
+.auth-inner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-info {
+  display: flex;
+  margin-right: 20px;
+}
+
+.user-info p {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.user-info img {
+  width: 40px;
+  height: 40px;
+}
+
+/* TOOLS SECTION */
+
+.wrap_tools {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Thickness section */
+
+.thickness-tool ul {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+.thickness-tool li {
+  display: flex;
+  width: 25px;
+  height: 25px;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #a7a79d;
+  cursor: pointer;
+}
+
+.thickness-1 div,
+.thickness-2 div,
+.thickness-3 div {
+  background-color: #ffed15;
+}
+
+.thickness-1 div {
+  width: 7px;
+  height: 7px;
+}
+
+.thickness-2 div {
+  width: 10px;
+  height: 10px;
+}
+
+.thickness-3 div {
+  width: 14px;
+  height: 14px;
+}
+
+.thickness-tool .active-thick {
+  border: 2px solid #ffed15;
+}
+
+/* Tools block */
+
+.wrap_draw-panel {
+  padding-right: 20px;
+}
+
+#draw-tools ul {
+  width: 117px;
+  text-align: center;
+}
+
+#draw-tools li {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 4px;
+  border: 2px solid #a7a79d;
+  line-height: 50px;
+  background-color: #323232;
+  cursor: pointer;
+}
+
+#draw-tools div {
+  text-align: center;
+}
+
+#draw-tools .active-tool {
+  border: 2px solid #ffed15;
+}
+
+/* Color block */
+
+.color-tools {
+  position: relative;
+  top: 25px;
+}
+
+.color-tools__select {
+  width: 50px;
+  height: 50px;
+}
+
+.color-tools__select:first-child {
+  position: relative;
+  z-index: 22;
+}
+
+.color-tools__select:nth-child(2) {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  z-index: 11;
+}
+
+.color-tools__switch {
+  position: absolute;
+  top: 55px;
+  left: 4px;
+  font-size: 18px;
+  color: #c4c0c0;
+}
+
+input[type="color"] {
+  -webkit-appearance: none;
+  border: none;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+}
+
+/* Frames block */
+
+#frames-block {
+  width: 160px;
+  height: 512px;
+  padding-right: 15px;
+  overflow-y: scroll;
+}
+
+.frame-canvas {
+  width: 135px;
+  height: 135px;
+}
+
+.add-frame {
+  margin-top: 15px;
+  border: 2px solid #a7a79d;
+  z-index: 10;
+  cursor: pointer;
+  background-color: #323232;
+}
+
+.add-frame:active,
+.add-frame:hover {
+  border: 2px solid #ffed15;
+}
+
+.add-frame p {
+  padding: 10px;
+  text-align: center;
+}
+
+.frame-wrap {
+  position: relative;
+  width: 135px;
+  height: 135px;
+  margin-bottom: 10px;
+  border: 5px solid #fff;
+}
+
+.frame-tools i {
+  font-size: 16px;
+  color: #808080;
+}
+
+.frame-num,
+.frame-duplicate,
+.frame-delete,
+.frame-move {
+  position: absolute;
+}
+
+.frame-num {
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 2;
+  font-weight: 600;
+  color: #000;
+  background-color: #ffed15;
+  cursor: default;
+}
+
+.frame-duplicate {
+  top: 105px;
+  left: 105px;
+  width: 30px;
+  height: 30px;
+}
+
+.frame-delete {
+  top: 0;
+  left: 105px;
+  width: 30px;
+  height: 30px;
+}
+
+.frame-move {
+  top: 105px;
+  left: 0;
+  width: 30px;
+  height: 30px;
+}
+
+li.drop-elem-proxy {
+  width: 135px;
+  height: 135px;
+  margin-bottom: 10px;
+  border: 4px dashed #ffed15;
+  border-radius: 3px;
+  background: #323;
+}
+
+.frame-hover {
+  border: 5px solid #888;
+}
+
+.active-frame {
+  border: 5px solid #ffed15;
+}
+
+#canvas {
+  border: solid 1px #ccc;
+}
+
+/* SERVICE SECTION */
+
+/* Preview block */
+
+#preview-wrapper {
+  position: relative;
+  width: 202px;
+  background-color: #888;
+}
+
+.preview_screen {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  border: 1px solid grey;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.full-screen {
+  position: absolute;
+  right: 20px;
+  bottom: 47px;
+  font-size: 25px;
+  color: #fff;
+}
+
+.full-screen_active {
+  width: 100vw;
+  height: 100vh;
+}
+
+.preview_fps-range {
+  display: flex;
+  justify-content: space-around;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.fps-display {
+  width: 15px;
+}
+
+.preview_fps-range div {
+  line-height: 2;
+}
+
+.preview_fps-range input {
+  cursor: pointer;
+}
+
+/* Service buttons */
+
+.canvas-manager,
+.wrap_btn {
+  margin-top: 30px;
+}
+
+.canvas-manager {
+  width: 202px;
+}
+
+.canvas-manager p {
+  cursor: default;
+}
+
+.canvas-manager button {
+  width: 57px;
+  height: 34px;
+  border: 2px solid #a7a79d;
+  color: #f7f7f7;
+  background-color: #323232;
+  cursor: pointer;
+}
+
+.canvas-manager .active-canvas-size {
+  border: 2px solid #ffed15;
+}
+
+.wrap_size-btn {
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-between;
+}
+
+.gif-export-btn,
+.apng-export-btn {
+  margin-top: 10px;
+  padding: 7px 10px;
+  border: 3px solid #000;
+  background-color: #ccc;
+}
+
+/* Footer */
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  background-color: #2b2b2b;
+}
+
+.footer-link {
+  margin-top: 20px;
+}
+
+footer a {
+  font-size: 1.2em;
+  color: #fff;
+}
+
+/* Auth by Email Modal Dialog */
+
+.modal-box {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30%;
+  padding: 0 20px 20px;
+  border-radius: 5px;
+  background: #fff;
+}
+
+.modal-close-btn {
+  display: inline;
+  float: right;
+  color: #000;
+  text-align: right;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.modal-form {
+  width: 80%;
+  margin: auto;
+  clear: both;
+}
+
+.modal-box input {
+  display: block;
+  width: 100%;
+  height: 20px;
+  margin-bottom: 15px;
+}
+
+.modal-box input::placeholder {
+  padding-left: 10px;
+}
+
+.modal-box button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 7px 10px;
+  border-radius: 3px;
+  color: #fff;
+}
+
+.modal-box .modal_log-in {
+  margin-right: 20px;
+  background: #17797e;
+}
+
+.modal-box .modal_sign-in {
+  background: #d4b218;
+}
+
+
+/*# sourceMappingURL=style.css.map*/
